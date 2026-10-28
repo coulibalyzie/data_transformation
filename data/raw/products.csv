@@ -1,0 +1,16 @@
+product_id,product_name,category,unit_cost,list_price
+1,Ordinateur portable Pro,Ordinateurs,650,999
+2,Ordinateur portable Air,Ordinateurs,480,749
+3,Écran 24 pouces,Écrans,90,159
+4,Écran 27 pouces,Écrans,150,279
+5,Clavier mécanique,Accessoires,45,89
+6,Souris sans fil,Accessoires,15,35
+7,Station d'accueil USB-C,Accessoires,70,129
+8,Casque professionnel,Audio,35,79
+9,Webcam HD,Audio,25,59
+10,Disque SSD 1 To,Stockage,55,99
+11,Disque SSD 2 To,Stockage,95,169
+12,Disque dur externe,Stockage,40,79
+13,Routeur Wi-Fi,Réseau,60,119
+14,Switch réseau,Réseau,45,95
+15,Tablette professionnelle,Tablettes,280,499

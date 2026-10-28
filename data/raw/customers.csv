@@ -1,0 +1,31 @@
+customer_id,customer_name,country,customer_segment,created_at
+1,Client 001,France,Particulier,2024-10-08
+2,Client 002,Belgique,Particulier,2024-05-22
+3,Client 003,France,Grande entreprise,2025-07-12
+4,Client 004,France,Grande entreprise,2025-03-08
+5,Client 005,France,Particulier,2024-04-05
+6,Client 006,Belgique,Particulier,2025-06-01
+7,Client 007,Italie,Particulier,2025-07-28
+8,Client 008,Belgique,Grande entreprise,2025-10-27
+9,Client 009,Italie,PME,2024-08-13
+10,Client 010,Espagne,Grande entreprise,2024-10-11
+11,Client 011,France,Particulier,2025-12-15
+12,Client 012,Espagne,PME,2024-10-11
+13,Client 013,Belgique,Particulier,2024-12-10
+14,Client 014,France,Particulier,2025-01-24
+15,Client 015,France,PME,2024-12-18
+16,Client 016,Italie,PME,2024-02-14
+17,Client 017,Espagne,Grande entreprise,2024-05-07
+18,Client 018,Espagne,Particulier,2025-07-19
+19,Client 019,Allemagne,Grande entreprise,2025-09-25
+20,Client 020,Allemagne,Grande entreprise,2024-07-15
+21,Client 021,France,Particulier,2025-11-08
+22,Client 022,Belgique,PME,2024-03-22
+23,Client 023,Belgique,Particulier,2025-01-24
+24,Client 024,Allemagne,PME,2025-10-12
+25,Client 025,Allemagne,Particulier,2025-01-14
+26,Client 026,Allemagne,Particulier,2025-11-17
+27,Client 027,Allemagne,Grande entreprise,2025-11-30
+28,Client 028,France,Grande entreprise,2025-10-12
+29,Client 029,Belgique,Grande entreprise,2024-09-07
+30,Client 030,Belgique,PME,2025-01-23

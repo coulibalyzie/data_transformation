@@ -1,0 +1,20 @@
+
+version: 2
+
+sources:
+  - name: raw
+    schema: dw_raw
+    description: "Données opérationnelles brutes de l'entreprise."
+
+    tables:
+      - name: customers
+        description: "Référentiel des clients."
+
+      - name: products
+        description: "Catalogue des produits."
+
+      - name: orders
+        description: "Commandes des clients."
+
+      - name: order_items
+        description: "Lignes de commande et détails des ventes."

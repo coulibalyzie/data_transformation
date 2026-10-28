@@ -1,0 +1,198 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Données clients standardisées."
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_name
+        data_tests:
+          - not_null
+      - name: country
+        data_tests:
+          - not_null
+      - name: customer_segment
+        data_tests:
+          - not_null
+
+  - name: stg_products
+    description: "Catalogue produits standardisé."
+    columns:
+      - name: product_id
+        data_tests:
+          - unique
+          - not_null
+      - name: product_name
+        data_tests:
+          - not_null
+      - name: category
+        data_tests:
+          - not_null
+
+  - name: stg_orders
+    description: "Commandes standardisées."
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_customers')
+                field: customer_id
+      - name: order_date
+        data_tests:
+          - not_null
+
+  - name: stg_order_items
+    description: "Lignes de commande avec chiffre d'affaires calculé."
+    columns:
+      - name: order_item_id
+        data_tests:
+          - unique
+          - not_null
+      - name: order_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_orders')
+                field: order_id
+      - name: product_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_products')
+                field: product_id
+      - name: quantity
+        data_tests:
+          - not_null
+      - name: line_revenue
+        data_tests:
+          - not_null
+
+  - name: dim_customer
+    description: "Dimension décrivant les clients."
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_name
+        data_tests:
+          - not_null
+      - name: country
+        data_tests:
+          - not_null
+      - name: customer_segment
+        data_tests:
+          - not_null
+
+
+  - name: dim_product
+    description: "Dimension décrivant le catalogue des produits."
+    columns:
+      - name: product_id
+        data_tests:
+          - unique
+          - not_null
+      - name: product_name
+        data_tests:
+          - not_null
+      - name: category
+        data_tests:
+          - not_null
+      - name: unit_cost
+        data_tests:
+          - not_null
+      - name: list_price
+        data_tests:
+          - not_null
+
+  - name: dim_date
+    description: "Dimension calendrier pour les analyses temporelles."
+    columns:
+      - name: date_key
+        data_tests:
+          - unique
+          - not_null
+      - name: full_date
+        data_tests:
+          - unique
+          - not_null
+      - name: year
+        data_tests:
+          - not_null
+      - name: month
+        data_tests:
+          - not_null
+      - name: day_of_month
+        data_tests:
+          - not_null
+
+  - name: fact_sales
+    description: "Table de faits des ventes au grain ligne de commande."
+    columns:
+      - name: order_item_id
+        data_tests:
+          - unique
+          - not_null
+      - name: order_id
+        data_tests:
+          - not_null
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customer')
+                field: customer_id
+      - name: product_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: product_id
+      - name: date_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_key
+      - name: quantity
+        data_tests:
+          - not_null
+      - name: line_revenue
+        data_tests:
+          - not_null
+      - name: gross_revenue
+        data_tests:
+          - not_null
+
+  - name: mart_sales_performance
+    description: "Indicateurs agrégés des commandes livrées."
+    columns:
+      - name: delivered_orders
+        data_tests:
+          - not_null
+      - name: units_sold
+        data_tests:
+          - not_null
+      - name: net_revenue
+        data_tests:
+          - not_null
+      - name: discounts_amount
+        data_tests:
+          - not_null
+      - name: average_order_value
+        data_tests:
+          - not_null
